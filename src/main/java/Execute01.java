@@ -18,10 +18,29 @@ public class Execute01 {
  */
 
   //1.Örnek: "workers" adında bir table oluşturup "worker_id,worker_name, worker_salary" sütunlarını ekleyin.
-  boolean sql1 = st.execute("CREATE TABLE workers(worker_id VARCHAR(20),worker_name VARCHAR(20), worker_salary INT );");
-        System.out.println("sql1=" + sql1);
+  boolean sql1 = st.execute("CREATE TABLE workers(worker_id VARCHAR(20),worker_name VARCHAR(30),worker_salary INT )");
+        System.out.println("sql1 = " + sql1);//false return eder ,çünkü data çağırmıyoruz.
 
-        //2.Örnek: Table'a worker_address sütunu ekleyerek alter yapın.
+  //2.Örnek: Table'a worker_address sütunu ekleyerek alter yapın.
+    String sql2 = "ALTER TABLE workers ADD worker_address VARCHAR(80);";
+    boolean sql2b = st.execute(sql2);
+      System.out.println("sql2b = " + sql2b);
+
+  //3.Örnek: workers table' ını silin
+    String sql3 = "DROP TABLE workers";
+    boolean sql3b = st.execute(sql3);
+      System.out.println("sql3b = " + sql3b);
+
+    //Bağlantıyı kapat.
+      con.close();
+      st.close();
+
+
+
+
+
+
+
 
 
     }
