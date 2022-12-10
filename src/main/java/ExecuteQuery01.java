@@ -32,6 +32,9 @@ public class ExecuteQuery01 {
         }
 
 
+        //Bağlantıyı kapat.
+        con.close();
+        st.close();
 
     }
 }
